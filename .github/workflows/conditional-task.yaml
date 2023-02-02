@@ -1,0 +1,36 @@
+name: conditional task
+on:
+  pull_request:
+    branches:
+      - "main"
+  push:
+    branches:
+      - "develop"
+      - "main"
+      - "releases/*"
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: job1
+        uses: actions/checkout@v2
+      - run: "echo Current date: $now"
+  job2:
+    runs-on: windows-latest
+    steps:
+      - name: job2
+        uses: actions/checkout@v2
+      - run: "echo Current date: $now"
+  job3:
+    runs-on: windows-latest
+    steps:
+      - name: job3
+        uses: actions/checkout@v2
+      - run: "echo Current date: $now"
+  job4:
+    runs-on: macos-latest
+    needs: [job1, job2, job3]
+    steps:
+      - name: job4
+        uses: actions/checkout@v2
+      - run: "echo Current date: $now"
