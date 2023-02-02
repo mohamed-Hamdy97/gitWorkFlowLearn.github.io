@@ -1,0 +1,15 @@
+name: first workflow
+on: [push, pull_request]
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build on ubuntu-latest
+        uses: actions/checkout@v2
+      - run: echo hello world!
+  job2:
+    runs-on: windows-latest
+    steps:
+      - name: build on windows-latest
+        uses: actions/checkout@v2
+      - run: echo hello world!
