@@ -6,5 +6,5 @@ jobs:
     steps:
       - name: build on ubuntu-latest
         uses: actions/checkout@v2
-      - run: echo hello world!
- 
+      - name: HTML5 Validator
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
