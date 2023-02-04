@@ -7,3 +7,12 @@ jobs:
     - name: chekout repo
       uses: actions/checkout@v2
     - run: python hello.py
+  build:
+    needs: [Test]
+    runs-on: ubunto-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/upload-artifact@v
+        with:
+          name: hello python
+          path: .
